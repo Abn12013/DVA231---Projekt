@@ -1,11 +1,21 @@
 Todo list
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
+1. Få miljön att fungera
+  - Få github att funka (Commit, fetch etc.)
+  - Skapa ett Visual studio projekt
+  - Hämta bibliotek
+  - Skapa grundläggande filsystem och ordning github
+2. Sätt upp databas
+3. Skapa huvudsida
+4. Skapa en sida så att en person kan ladda upp innehåll till databas
+  - Gör enkel HTML gränssnitt
+  - Javascript som verifierar innehåll som ska laddas upp
+  - Koppling mot server och databas som sparar innehållet
+  - Presentera innehåll som finns sparad i databas (med tillhörande server anrop)
+  
+5. Skapa inlog
+6. Lägg till information om vem som lägger upp innehåll för innehållet
+7. Gilla annat innehåll på huvudsidan
+8. Visa innehåll man själv gillat
+(9. Sökning och taggning av posts)
 10.
+11.
