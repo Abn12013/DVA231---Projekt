@@ -7,7 +7,7 @@ css - bootstrap
 asp/html
 mysql databas
 
-skaffa databas från afshin
+skaffa databas från afshin (är denna hämtad än? kör lokalt så länge)
 
 Pinterest
 Loggin
