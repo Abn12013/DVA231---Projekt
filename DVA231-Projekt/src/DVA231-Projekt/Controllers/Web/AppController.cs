@@ -54,6 +54,11 @@ namespace DVA231_Projekt.Controllers.Web
 
             return View();
         }
-        
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
     }
 }
