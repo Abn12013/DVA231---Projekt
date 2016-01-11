@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using DVA231_Projekt.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
+using DVA231_Projekt.Models;
+
+//using Microsoft.EntityFramework.SqlServer;
 
 namespace DVA231_Projekt
 {
@@ -31,6 +34,12 @@ namespace DVA231_Projekt
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            //Should add EntityFramework.SqlServer 7.0.0-beta8 here?
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<ProjectContext>();
+
 
             services.AddScoped<IMailService, DebugMailService>();
 

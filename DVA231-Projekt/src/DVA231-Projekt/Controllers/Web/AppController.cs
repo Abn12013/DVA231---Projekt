@@ -1,23 +1,28 @@
-﻿using DVA231_Projekt.Services;
+﻿using DVA231_Projekt.Models;
+using DVA231_Projekt.Services;
 using DVA231_Projekt.ViewModels;
 using Microsoft.AspNet.Mvc;
 using System;
+using System.Linq;
 
 namespace DVA231_Projekt.Controllers.Web
 {
     public class AppController : Controller
     {
         private IMailService _mailService;
+        private ProjectContext _context;
 
-        public AppController(IMailService service)
+        public AppController(IMailService service, ProjectContext context)
         {
             _mailService = service;
+            _context = context;
         }
 
         //The request is called Index. No id parameter in here yet -> app/index/id
         public IActionResult Index()
         {
-            return View();
+            var textposts = _context.Textposts.OrderBy(t => t.UserName).ToList();
+            return View(textposts);
         }
 
         public IActionResult About()
