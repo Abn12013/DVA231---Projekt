@@ -1,8 +1,9 @@
 ﻿{
   "AppSettings": {
     "SiteEmailAddress": "test@tests.se"
-  }	,
+  },
   "Data": {
-    "ProjectContextConnection": "Server=(localdb)\\ProjectsV12;Database=ProjectDb;Trusted_Connection=true;MultipleActiveRecordSets=true;"
+    "ProjectContextConnection": "Server=(localdb)\\ProjectsV12;Database=ProjectDb;Trusted_Connection=True;MultipleActiveResultSets=True;"
   }
 }
+

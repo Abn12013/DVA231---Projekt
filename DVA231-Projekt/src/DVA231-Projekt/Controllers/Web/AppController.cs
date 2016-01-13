@@ -10,19 +10,20 @@ namespace DVA231_Projekt.Controllers.Web
     public class AppController : Controller
     {
         private IMailService _mailService;
-        private ProjectContext _context;
+        private IProjectRepository _repository;
 
-        public AppController(IMailService service, ProjectContext context)
+        public AppController(IMailService service, IProjectRepository repository)
         {
             _mailService = service;
-            _context = context;
+            _repository = repository;
         }
 
         //The request is called Index. No id parameter in here yet -> app/index/id
         public IActionResult Index()
         {
-            var textposts = _context.Textposts.OrderBy(t => t.UserName).ToList();
+            var textposts = _repository.GetAllTextPosts();
             return View(textposts);
+            //return View();
         }
 
         public IActionResult About()

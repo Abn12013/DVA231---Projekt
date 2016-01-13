@@ -12,7 +12,7 @@ namespace DVA231_Projekt.Models
         public ProjectContext()
         {
             //Create the database and execute migrations
-            db.Database.EnsureCreated();
+            Database.EnsureCreated();
             //Database.Migrate();
         }
 

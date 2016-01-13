@@ -35,18 +35,22 @@ namespace DVA231_Projekt
         {
             services.AddMvc();
 
-            //Should add EntityFramework.SqlServer 7.0.0-beta8 here?
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ProjectContext>();
 
+            //Transient creates an instance of the ProjectContextSeedData and destroys it, doesn't have to hang on for reuse
+            services.AddTransient<ProjectContextSeedData>();
+
+            //AddScoped - the construction of the repository will only happen once per request
+            services.AddScoped<IProjectRepository, ProjectRepository>();
 
             services.AddScoped<IMailService, DebugMailService>();
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, ProjectContextSeedData seeder)
         {
             app.UseIISPlatformHandler();
 
@@ -61,6 +65,9 @@ namespace DVA231_Projekt
                     defaults: new { controller = "App", action = "Index" }
                     );
             });
+
+            seeder.EnsureSeedData();
+
         }
 
         // Entry point for the application.
