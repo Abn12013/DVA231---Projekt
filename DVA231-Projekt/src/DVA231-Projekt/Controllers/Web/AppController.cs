@@ -18,7 +18,7 @@ namespace DVA231_Projekt.Controllers.Web
             _repository = repository;
         }
 
-        //The request is called Index. No id parameter in here yet -> app/index/id
+        //The request is called Index.
         public IActionResult Index()
         {
             var textposts = _repository.GetAllTextPosts();

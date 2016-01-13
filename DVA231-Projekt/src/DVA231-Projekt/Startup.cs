@@ -10,6 +10,7 @@ using DVA231_Projekt.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.PlatformAbstractions;
 using DVA231_Projekt.Models;
+using Microsoft.Extensions.Logging;
 
 //using Microsoft.EntityFramework.SqlServer;
 
@@ -35,6 +36,8 @@ namespace DVA231_Projekt
         {
             services.AddMvc();
 
+            services.AddLogging(); //Included in ASP.NET assemblies
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ProjectContext>();
@@ -50,9 +53,11 @@ namespace DVA231_Projekt
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, ProjectContextSeedData seeder)
+        public void Configure(IApplicationBuilder app, ProjectContextSeedData seeder, ILoggerFactory loggerFactory)
         {
             app.UseIISPlatformHandler();
+
+            loggerFactory.AddDebug(LogLevel.Warning);
 
             app.UseStaticFiles();
 
