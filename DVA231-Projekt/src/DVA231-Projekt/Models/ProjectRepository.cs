@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+/*
+The repository creates simple interface to dbcontext and is also responsible for logging
+*/
 namespace DVA231_Projekt.Models
 {
     public class ProjectRepository : IProjectRepository
